@@ -1,9 +1,10 @@
-// 看是否是组件模式
-if (rootProject.ext.isAlone) {
-    apply plugin: 'com.android.library'
-} else {
-    apply plugin: 'com.android.application'
-}
+// app下如果是非组件模式,就做为application
+//if (rootProject.ext.isAlone) {
+//    apply plugin: 'com.android.library'
+//} else {
+// 做为壳模式的话就一直是application
+apply plugin: 'com.android.application'
+//}
 android {
     // 默认设置
     compileSdkVersion versions.compileSdkVersion
@@ -37,7 +38,6 @@ android {
             }
         }
     }
-
     // java 8 在3.0以上不再需要jack支持了.
     compileOptions {
         sourceCompatibility versions.javaVersion
